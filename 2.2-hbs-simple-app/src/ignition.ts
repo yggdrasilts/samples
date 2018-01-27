@@ -1,5 +1,5 @@
 /** yggdrasil imports */
-import { IYggdrasilOptions, EViewEngine } from '@yggdrasil/startup';
+import { IYggdrasilOptions, EApplicationType, EViewEngine } from '@yggdrasil/startup';
 import { Server } from '@yggdrasil/mvc';
 
 /** Application imports */
@@ -7,8 +7,11 @@ import { YggdrasilServer } from './server';
 import * as hbs from 'hbs';
 
 const options: IYggdrasilOptions = {
-  views: {
-    view_engine: EViewEngine.HANDLEBARS
+  application: {
+    type: EApplicationType.WEB,
+    views: {
+      view_engine: EViewEngine.HANDLEBARS
+    }
   }
 };
 
@@ -34,4 +37,4 @@ hbs.registerHelper('block', (name) => {
 /**
  * Start yggdrasil application
  */
-export const app: Promise<Server> = new YggdrasilServer().bootstrap(3000, options);
+export const app: Promise<Server> = new YggdrasilServer().bootstrap(3022, options);

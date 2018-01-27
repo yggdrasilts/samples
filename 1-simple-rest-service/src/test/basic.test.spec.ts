@@ -11,6 +11,17 @@ class BasicTestSuite extends YggdrasilTest {
     super(app);
   }
 
+  @test('should test the default yggdrasil access.')
+  public testAccess(done) {
+    this.chai.request(this.server)
+      .get('/')
+      .end((err, res) => {
+        this.should.not.exist(err);
+        res.should.have.status(200);
+        done();
+      });
+  }
+
   @test('should test get hello world response')
   public testGetHelloWorld(done) {
     this.chai.request(this.server)

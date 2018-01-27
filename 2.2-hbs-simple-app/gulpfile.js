@@ -1,11 +1,11 @@
 var fs = require('fs');
 
-const gulpclass = './node_modules/@yggdrasil/devs/gulpclass.js';
+const gulpClass = './node_modules/@yggdrasil/devs/class.gulp.js';
 
 try {
-  if (fs.statSync(gulpclass)) {
+  if (fs.statSync(gulpClass)) {
     console.log('Using @yggdrasil gulpclass.');
-    eval(fs.readFileSync(gulpclass).toString());
+    eval(fs.readFileSync(gulpClass).toString());
   }
 } catch (error) {
   console.log(error);
