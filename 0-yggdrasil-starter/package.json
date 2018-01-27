@@ -1,0 +1,24 @@
+{
+  "name": "yggdrasil-starter",
+  "version": "1.0.0",
+  "description": "Starter boilerplate built using @yggdrasil architecture.",
+  "license": "MIT",
+  "author": "David Lopez",
+  "scripts": {
+    "clean": "gulp clean",
+    "clean:all": "gulp clean:all",
+    "compile": "gulp build",
+    "start": "gulp start",
+    "test": "gulp compile:test && mocha --exit dist/test/**/*.spec.js",
+    "tslint": "tslint -p tsconfig.json -t verbose",
+    "tslint:test": "tslint -p tsconfig.spec.json -t verbose"
+  },
+  "dependencies": {
+    "@yggdrasil/mvc": "canary",
+    "@yggdrasil/startup": "canary"
+  },
+  "devDependencies": {
+    "@yggdrasil/testing": "canary",
+    "@yggdrasil/devs": "canary"
+  }
+}
