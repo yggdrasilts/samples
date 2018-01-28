@@ -1,6 +1,11 @@
 /** yggdrasil imports */
 import { Request, Response } from '@yggdrasil/mvc';
 import { FileLogger } from '@yggdrasil/core';
+import { MongoDBRepository } from '@yggdrasil/data';
+
+import { Connection, MongoEntityManager } from 'typeorm';
+import { validate } from 'class-validator';
+import { Data } from '../../repository/entities/Data';
 
 /**
  * @class BasicCtrl
@@ -10,9 +15,13 @@ export class BasicCtrl {
   /** BasicCtrl logger */
   private logger: FileLogger;
 
+  private connection: Connection;
+  private manager: MongoEntityManager;
+
   /** Default constructor */
-  constructor() {
+  constructor(repository: MongoDBRepository) {
     this.logger = new FileLogger(BasicCtrl.name);
+    this.manager = repository.getManager();
   }
 
   /**
@@ -22,10 +31,12 @@ export class BasicCtrl {
    * @param req Request
    * @param res Response
    */
-  public getHelloWorld = (req: Request, res: Response) => {
+  public getHelloWorld = async (req: Request, res: Response) => {
     this.logger.debug('getHelloWorld response.');
 
-    res.status(200).json({ method: 'GET', data: 'Hello World!' });
+    const data = await this.manager.find(Data);
+
+    res.status(200).json({ method: 'GET', result: data });
   }
 
   /**
@@ -35,10 +46,21 @@ export class BasicCtrl {
    * @param req Request
    * @param res Response
    */
-  public postHelloWorld = (req: Request, res: Response) => {
+  public postHelloWorld = async (req: Request, res: Response) => {
     this.logger.debug('postHelloWorld response.');
 
-    res.status(200).json({ method: 'POST', data: 'Hello World!', body: req.body });
+    const reqData = new Data();
+    reqData.text = req.body.text;
+    reqData.title = req.body.title;
+
+    const errors = await validate(reqData);
+    if (errors.length > 0) {
+      this.logger.error('Errors validating request body object');
+      res.status(200).json({ method: 'POST', error: errors  });
+    } else {
+      const data = await this.manager.save(reqData);
+      res.status(200).json({ method: 'POST', data: { message: `Saved data ${data}` } });
+    }
   }
 
   /**

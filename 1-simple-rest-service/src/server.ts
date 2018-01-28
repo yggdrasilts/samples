@@ -2,6 +2,7 @@
 import { Bootstrap, IBootstrapRoute } from '@yggdrasil/startup';
 import { Router } from '@yggdrasil/mvc';
 import { FileLogger } from '@yggdrasil/core';
+import { MongoDBRepository } from '@yggdrasil/data';
 
 /** Application imports */
 import { BasicAPIRoute } from './routes/api/basic.route';
@@ -25,8 +26,8 @@ export class YggdrasilServer extends Bootstrap {
    * Creates API routes
    * @param router Express Router
    */
-  public api(router: Router): IBootstrapRoute {
-    const basicAPI = new BasicAPIRoute(router);
+  public api(router: Router, repository?: MongoDBRepository): IBootstrapRoute {
+    const basicAPI = new BasicAPIRoute(router, repository);
 
     return { prefix: '/api' };
   }

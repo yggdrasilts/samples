@@ -1,6 +1,7 @@
 /** yggdrasil imports */
 import { BaseRoutes, Router } from '@yggdrasil/mvc';
 import { FileLogger } from '@yggdrasil/core';
+import { MongoDBRepository } from '@yggdrasil/data';
 
 /** Application controllers imports */
 import { BasicCtrl } from '../../controllers/api';
@@ -17,10 +18,10 @@ export class BasicAPIRoute extends BaseRoutes {
   private basicCtrl: BasicCtrl;
 
   /** Default constructor */
-  constructor(router: Router) {
+  constructor(router: Router, repository: MongoDBRepository) {
     super();
     this.logger = new FileLogger(BasicAPIRoute.name);
-    this.basicCtrl = new BasicCtrl();
+    this.basicCtrl = new BasicCtrl(repository);
 
     /** Creates routes */
     this.create(router);
