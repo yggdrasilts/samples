@@ -1,5 +1,5 @@
 /** yggdrasil imports */
-import { IYggdrasilOptions, EApplicationType } from '@yggdrasil/startup';
+import { IYggdrasilOptions, EApplicationType } from '@yggdrasil/core';
 import { Server } from '@yggdrasil/mvc';
 
 /** Application imports */

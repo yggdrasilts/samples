@@ -1,6 +1,5 @@
 /** yggdrasil imports */
-import { Bootstrap } from '@yggdrasil/startup';
-import { FileLogger } from '@yggdrasil/core';
+import { Bootstrap, FileLogger } from '@yggdrasil/core';
 
 /**
  * @class YggdrasilServer
