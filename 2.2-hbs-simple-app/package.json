@@ -14,8 +14,8 @@
     "tslint:test": "tslint -p tsconfig.spec.json -t verbose"
   },
   "dependencies": {
+    "@yggdrasil/core": "canary",
     "@yggdrasil/mvc": "canary",
-    "@yggdrasil/startup": "canary",
     "bootstrap": "^4.0.0",
     "hbs": "^4.0.1",
     "jquery": "^3.3.1"

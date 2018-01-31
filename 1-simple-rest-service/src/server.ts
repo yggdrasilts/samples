@@ -1,7 +1,7 @@
 /** yggdrasil imports */
-import { Bootstrap, IBootstrapRoute } from '@yggdrasil/startup';
 import { Router } from '@yggdrasil/mvc';
-import { FileLogger } from '@yggdrasil/core';
+import { FileLogger, Bootstrap } from '@yggdrasil/core';
+import { IBootstrapRoute } from '@yggdrasil/core/modules/startup';
 import { MongoDBRepository } from '@yggdrasil/data';
 
 /** Application imports */

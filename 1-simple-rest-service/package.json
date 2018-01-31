@@ -15,12 +15,12 @@
     "tslint:test": "tslint -p tsconfig.spec.json -t verbose"
   },
   "dependencies": {
-    "@yggdrasil/data": "canary",
+    "@yggdrasil/core": "canary",
     "@yggdrasil/mvc": "canary",
-    "@yggdrasil/startup": "canary"
+    "@yggdrasil/data": "canary"
   },
   "devDependencies": {
-    "@yggdrasil/testing": "canary",
-    "@yggdrasil/devs": "canary"
+    "@yggdrasil/devs": "canary",
+    "@yggdrasil/testing": "canary"
   }
 }

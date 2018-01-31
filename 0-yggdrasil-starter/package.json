@@ -18,7 +18,7 @@
     "@yggdrasil/mvc": "canary"
   },
   "devDependencies": {
-    "@yggdrasil/testing": "canary",
-    "@yggdrasil/devs": "canary"
+    "@yggdrasil/devs": "canary",
+    "@yggdrasil/testing": "canary"
   }
 }

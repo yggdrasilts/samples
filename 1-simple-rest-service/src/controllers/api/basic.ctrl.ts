@@ -59,7 +59,7 @@ export class BasicCtrl {
       res.status(200).json({ method: 'POST', error: errors  });
     } else {
       const data = await this.manager.save(reqData);
-      res.status(200).json({ method: 'POST', data: { message: `Saved data ${data}` } });
+      res.status(200).json({ method: 'POST', data: { message: `Saved data ${JSON.stringify(data)}` } });
     }
   }
 
