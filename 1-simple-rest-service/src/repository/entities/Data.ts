@@ -15,4 +15,8 @@ export class Data {
     @IsNotEmpty()
     public text: string;
 
+    constructor(title: string, text: string) {
+      this.title = title;
+      this.text = text;
+    }
 }

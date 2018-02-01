@@ -53,7 +53,7 @@ export class BasicAPIRoute extends BaseRoutes {
   private gets(router: Router) {
     this.logger.debug('Configuring gets.');
 
-    router.route('/basic').get(this.basicCtrl.getHelloWorld);
+    router.route('/basic/:id?').get(this.basicCtrl.getHelloWorld);
   }
 
   /** Creates POSTS API */
@@ -67,13 +67,13 @@ export class BasicAPIRoute extends BaseRoutes {
   private puts(router: Router) {
     this.logger.debug('Configuring puts.');
 
-    router.route('/basic').put(this.basicCtrl.putHelloWorld);
+    router.route('/basic/:id').put(this.basicCtrl.putHelloWorld);
   }
 
   /** Creates DELETES API */
   private deletes(router: Router) {
     this.logger.debug('Configuring deletes.');
 
-    router.route('/basic').delete(this.basicCtrl.deleteHelloWorld);
+    router.route('/basic/:id').delete(this.basicCtrl.deleteHelloWorld);
   }
 }
