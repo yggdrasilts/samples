@@ -9,7 +9,7 @@
   "include": [
     "*.ts",
     "**/*.ts",
-    "./**/*.spec.ts"
+    "**/*.spec.ts"
   ],
   "exclude": [
     "./node_modules"
