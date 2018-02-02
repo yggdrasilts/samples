@@ -11,7 +11,7 @@ class HelloWorldDTOTestSuite extends YggdrasilTest {
   public testDefaultConstructor(done) {
     const hw = new HelloWorld(0, 'World');
 
-    this.chai.assert.deepEqual(hw, { id: 0, name: 'World' });
+    this.assert.deepEqual(hw, { id: 0, name: 'World' });
     done();
   }
 

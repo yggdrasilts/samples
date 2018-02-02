@@ -9,7 +9,7 @@
     "clean:all": "gulp clean:all",
     "compile": "gulp build",
     "start": "gulp start",
-    "test": "gulp compile:test && mocha --exit dist/test/**/*.spec.js",
+    "test": "gulp compile:test && mocha dist --exit --recursive",
     "tslint": "tslint -p tsconfig.json -t verbose",
     "tslint:test": "tslint -p tsconfig.spec.json -t verbose"
   },

@@ -10,7 +10,7 @@
     "compile": "npm run tslint && gulp build",
     "compile:test": "npm run tslint:test && gulp build:test",
     "start": "npm run tslint && gulp start",
-    "test": "gulp compile:test && mocha --exit dist/test/**/*.spec.js",
+    "test": "gulp compile:test && mocha dist --exit --recursive",
     "tslint": "tslint -p tsconfig.json -t verbose",
     "tslint:test": "tslint -p tsconfig.spec.json -t verbose"
   },

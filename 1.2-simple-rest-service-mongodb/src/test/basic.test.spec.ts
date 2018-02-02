@@ -53,7 +53,7 @@ class BasicTestSuite extends YggdrasilTest {
   @test('should test put hello world response')
   public testPutHelloWorld(done) {
     this.chai.request(this.server)
-      .put('/api/basic')
+      .put('/api/basic/8')
       .end((err, res) => {
         this.should.not.exist(err);
         res.should.have.status(200);
@@ -67,7 +67,7 @@ class BasicTestSuite extends YggdrasilTest {
   @test('should test delete hello world response')
   public testDeleteHelloWorld(done) {
     this.chai.request(this.server)
-      .delete('/api/basic')
+      .delete('/api/basic/8')
       .end((err, res) => {
         this.should.not.exist(err);
         res.should.have.status(200);
