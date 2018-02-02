@@ -7,14 +7,11 @@ import { YggdrasilServer } from './server';
 
 const options: IYggdrasilOptions = {
   application: {
-    type: EApplicationType.REST,
-    database: {
-      type: 'mongodb'
-    }
+    type: EApplicationType.REST
   }
 };
 
 /**
  * Start yggdrasil application
  */
-export const app: Promise<Server> = new YggdrasilServer().bootstrap(3001, options);
+export const app: Promise<Server> = new YggdrasilServer().bootstrap(3011, options);

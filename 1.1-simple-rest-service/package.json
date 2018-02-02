@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@yggdrasil/core": "canary",
-    "@yggdrasil/data": "canary",
     "@yggdrasil/mvc": "canary"
   },
   "devDependencies": {

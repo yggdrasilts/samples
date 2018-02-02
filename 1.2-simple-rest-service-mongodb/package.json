@@ -1,0 +1,26 @@
+{
+  "name": "simple-rest-service-mongodb",
+  "version": "1.0.0",
+  "description": "Simple REST application built using @yggdrasil architecture and using mongodb.",
+  "license": "MIT",
+  "author": "David Lopez",
+  "scripts": {
+    "clean": "gulp clean",
+    "clean:all": "gulp clean:all",
+    "compile": "npm run tslint && gulp build",
+    "compile:test": "npm run tslint:test && gulp build:test",
+    "start": "npm run tslint && gulp start",
+    "test": "gulp compile:test && mocha --exit dist/test/**/*.spec.js",
+    "tslint": "tslint -p tsconfig.json -t verbose",
+    "tslint:test": "tslint -p tsconfig.spec.json -t verbose"
+  },
+  "dependencies": {
+    "@yggdrasil/core": "canary",
+    "@yggdrasil/data": "canary",
+    "@yggdrasil/mvc": "canary"
+  },
+  "devDependencies": {
+    "@yggdrasil/devs": "canary",
+    "@yggdrasil/testing": "canary"
+  }
+}
