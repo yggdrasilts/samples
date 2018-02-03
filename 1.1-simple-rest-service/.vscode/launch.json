@@ -11,10 +11,10 @@
         "NODE_ENV": "dev"
       },
       "name": "Debug app-1",
-      "program": "${workspaceFolder}/1-simple-rest-service/src/ignition.ts",
+      "program": "${workspaceFolder}/src/ignition.ts",
       "sourceMaps": true,
       "cwd": "${workspaceFolder}",
-      "outFiles": ["${workspaceFolder}/1-simple-rest-service/dist/**/*.js"]
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"]
     }
   ]
 }
