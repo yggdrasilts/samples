@@ -1,4 +1,7 @@
 node_modules
 dist
 logs
+.nyc_output
+coverage
+package-lock.json
 yarn.lock

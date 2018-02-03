@@ -10,7 +10,7 @@
     "compile": "npm run tslint && gulp build",
     "compile:test": "npm run tslint:test && gulp build:test",
     "start": "npm run tslint && gulp start",
-    "test": "gulp compile:test && mocha dist --exit --recursive",
+    "test": "gulp compile:test && nyc --require ts-node/register mocha --exit --recursive \"src/**/*.spec.ts\"",
     "tslint": "tslint -p tsconfig.json -t verbose",
     "tslint:test": "tslint -p tsconfig.spec.json -t verbose"
   },
@@ -21,5 +21,23 @@
   "devDependencies": {
     "@yggdrasil/devs": "canary",
     "@yggdrasil/testing": "canary"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/index.ts",
+      "**/*.spec.ts",
+      "**/*.d.ts"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "all": true
   }
 }

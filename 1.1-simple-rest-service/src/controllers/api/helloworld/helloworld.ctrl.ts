@@ -46,9 +46,9 @@ export class HelloWorldCtrl {
   public getById = async (req: Request, res: Response) => {
     this.logger.debug('get message by id.');
 
-    const id = req.params.id;
+    const id = Number(req.params.id);
     const result = this.helloWorld.find(element => element.getId() === id );
-
+    
     res.status(200).json({ method: 'GET', message: result || 'No result' });
 
   }
@@ -78,8 +78,9 @@ export class HelloWorldCtrl {
   public put = async (req: Request, res: Response) => {
     this.logger.debug('putHelloWorld response.');
 
-    const id = req.params.id;
+    const id = Number(req.params.id);
     const name = req.body.name;
+
     const result = this.helloWorld.map(element => element.getId() === id ? element.replaceName(name) : element );
     res.status(200).json({ method: 'PUT', message: this.helloWorld });
   }
