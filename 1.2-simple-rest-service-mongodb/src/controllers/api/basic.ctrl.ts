@@ -5,7 +5,6 @@ import { MongoDBRepository } from '@yggdrasil/data';
 
 /** Third-party imports */
 import { Connection, MongoEntityManager } from 'typeorm';
-import { ObjectID } from 'mongodb';
 import { validate } from 'class-validator';
 
 /** Application imports */
@@ -33,14 +32,14 @@ export class BasicCtrl {
   }
 
   /**
-   * Gets basic 'Hello World!' json response
+   * Gets Data from mongodb
    *
-   * @method getHelloworld
+   * @method getData
    * @param req Request
    * @param res Response
    */
-  public getHelloWorld = async (req: Request, res: Response) => {
-    this.logger.debug('getHelloWorld response.');
+  public getData = async (req: Request, res: Response) => {
+    this.logger.debug('getData response');
 
     let data: Data | Data[];
     try {
@@ -48,7 +47,7 @@ export class BasicCtrl {
         this.logger.debug(`Search data by id: ${req.params.id}.`);
         data = await this.manager.findOneById(Data, req.params.id);
       } else {
-        this.logger.debug('Get all data.');
+        this.logger.debug('Gets all data.');
         data = await this.manager.find(Data);
       }
 
@@ -61,14 +60,14 @@ export class BasicCtrl {
   }
 
   /**
-   * Posts basic 'Hello World!' json response
+   * Adds data to mongodb
    *
-   * @method postHelloworld
+   * @method addData
    * @param req Request
    * @param res Response
    */
-  public postHelloWorld = async (req: Request, res: Response) => {
-    this.logger.debug('postHelloWorld response.');
+  public addData = async (req: Request, res: Response) => {
+    this.logger.debug('addData response.');
 
     const reqData = new Data(req.body.title, req.body.text);
 
@@ -83,14 +82,14 @@ export class BasicCtrl {
   }
 
   /**
-   * Puts basic 'Hello World!' json response
+   * Updates data inserted
    *
-   * @method putHelloworld
+   * @method updateData
    * @param req Request
    * @param res Response
    */
-  public putHelloWorld = async (req: Request, res: Response) => {
-    this.logger.debug('putHelloWorld response.');
+  public updateData = async (req: Request, res: Response) => {
+    this.logger.debug('updateData response.');
 
     const reqData = new Data(req.body.title, req.body.text);
     const id = req.params.id;
@@ -107,14 +106,14 @@ export class BasicCtrl {
   }
 
   /**
-   * Deletes basic 'Hello World!' json response
+   * Deletes mongodb data
    *
-   * @method deleteHelloworld
+   * @method deleteData
    * @param req Request
    * @param res Response
    */
-  public deleteHelloWorld = async (req: Request, res: Response) => {
-    this.logger.debug('deleteHelloWorld response.');
+  public deleteData = async (req: Request, res: Response) => {
+    this.logger.debug('deleteData response.');
 
     const data = await this.manager.findOneById(Data, req.params.id);
 
