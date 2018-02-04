@@ -112,9 +112,19 @@ export class BasicCtrl {
    * @param req Request
    * @param res Response
    */
-  public deleteHelloWorld = (req: Request, res: Response) => {
+  public deleteHelloWorld = async (req: Request, res: Response) => {
     this.logger.debug('deleteHelloWorld response.');
 
-    res.status(200).json({ method: 'DELETE', data: 'Hello World!', body: req.body });
+    const reqData = new Data(req.body.title, req.body.text);
+    const id = req.params.id;
+
+    const errors = await validate(reqData);
+    if (errors.length > 0) {
+      this.logger.error('Errors validating request body object');
+      res.status(200).json({ method: 'DELETE', error: errors  });
+    } else {
+      await this.manager.findOneAndDelete(Data, id);
+      res.status(200).json({ method: 'DELETE', data: { message: `Delete data with id: ${id}` } });
+    }
   }
 }
