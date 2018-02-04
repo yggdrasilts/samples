@@ -3,9 +3,20 @@ extends layout
 block content
   section.jumbotron.text-center
     .container
-      h1.jumbotron-heading Contact
+      h1.jumbotron-heading Contact Form
       p.lead.text-muted
-        | Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.
-      p
-        a.btn.btn-primary.my-2(href="#") Button A
-        a.btn.btn-secondary.my-2(href="#") Button B
+        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue mi urna, hendrerit lacinia ipsum facilisis a. Vivamus tincidunt lacus eget justo cursus cursus. In auctor velit neque, vel semper mi euismod ac.
+      .col-md
+        .form-area
+          form(role="form")
+            .form-group
+              input#name.form-control(type="text" name="name" placeholder="Name" required="")
+            .form-group
+              input#email.form-control(type="text" name="email" placeholder="Email" required="")
+            .form-group
+              input#mobile.form-control(type="text" name="mobile" placeholder="Mobile Number" required="")
+            .form-group
+              input#subject.form-control(type="text" name="subject" placeholder="Subject" required="")
+            .form-group
+              textarea#message.form-control(type="textarea" placeholder="Message" maxlength="140" rows="7")
+            button#submit.btn.btn-primary.pull-right(type="button" name="submit") Send Form

@@ -1,5 +1,19 @@
+@font-face {
+  font-family: 'yggdrasil';
+  src: url('../fonts/yggdrasil/Yggdrasil.ttf') format('truetype');
+}
+
 :root {
   --jumbotron-padding-y: 3rem;
+}
+
+header {
+  nav {
+    .navbar-brand {
+      font-family: 'yggdrasil';
+      padding-bottom: 0;
+    }
+  }
 }
 
 .jumbotron {
@@ -25,6 +39,10 @@
 
 .jumbotron .container {
   max-width: 40rem;
+
+  h1 {
+    font-family: 'yggdrasil'
+  }
 }
 
 footer {
