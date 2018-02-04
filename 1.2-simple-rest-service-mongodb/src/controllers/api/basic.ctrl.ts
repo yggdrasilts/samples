@@ -5,6 +5,7 @@ import { MongoDBRepository } from '@yggdrasil/data';
 
 /** Third-party imports */
 import { Connection, MongoEntityManager } from 'typeorm';
+import { ObjectID } from 'mongodb';
 import { validate } from 'class-validator';
 
 /** Application imports */
@@ -115,16 +116,14 @@ export class BasicCtrl {
   public deleteHelloWorld = async (req: Request, res: Response) => {
     this.logger.debug('deleteHelloWorld response.');
 
-    const reqData = new Data(req.body.title, req.body.text);
-    const id = req.params.id;
+    const data = await this.manager.findOneById(Data, req.params.id);
 
-    const errors = await validate(reqData);
-    if (errors.length > 0) {
-      this.logger.error('Errors validating request body object');
-      res.status(200).json({ method: 'DELETE', error: errors  });
+    if (data) {
+      const result = await this.manager.remove(data);
+      res.status(200).json({ method: 'DELETE', data: { message: `Delete data with id: ${req.params.id}` } });
     } else {
-      await this.manager.findOneAndDelete(Data, id);
-      res.status(200).json({ method: 'DELETE', data: { message: `Delete data with id: ${id}` } });
+      this.logger.error(`Error finding data by id: ${req.params.id}`);
+      res.status(200).json({ method: 'DELETE', error: 'Not object found.'  });
     }
   }
 }
