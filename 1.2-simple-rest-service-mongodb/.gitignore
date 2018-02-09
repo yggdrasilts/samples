@@ -1,6 +1,10 @@
+# Folders
 node_modules
 dist
 logs
 .nyc_output
 coverage
+
+# Lock files
+package-lock.json
 yarn.lock

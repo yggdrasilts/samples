@@ -1,113 +1,138 @@
 /** yggdrasil imports */
-import { FileLogger } from '@yggdrasil/core';
-import { Request, Response } from '@yggdrasil/mvc';
+import {
+	FileLogger
+} from '@yggdrasil/core';
+import {
+	Request,
+	Response
+} from '@yggdrasil/mvc';
 
 /** Application imports */
-import { HelloWorld } from './helloworld.dto';
+import {
+	HelloWorld
+} from './helloworld.dto';
 
 /**
  * @class HelloWorldCtrl
  */
 export class HelloWorldCtrl {
 
-  /** HelloWorldCtrl logger */
-  private logger: FileLogger;
+	/** HelloWorldCtrl logger */
+	private logger: FileLogger;
 
-  /** HelloWorldCtrl property */
-  private helloWorld: HelloWorld[];
+	/** HelloWorldCtrl property */
+	private helloWorld: HelloWorld[];
 
-  /** Default constructor */
-  constructor() {
-    this.logger = new FileLogger(HelloWorldCtrl.name);
-    this.helloWorld = new Array();
-  }
+	/** Default constructor */
+	constructor() {
+		this.logger = new FileLogger(HelloWorldCtrl.name);
+		this.helloWorld = new Array();
+	}
 
-  /**
-   * Returns helloworld array.
-   *
-   * @method getAll
-   * @param req Request
-   * @param res Response
-   */
-  public getAll = async (req: Request, res: Response) => {
-    this.logger.debug('get all messages.');
+	/**
+	 * Returns helloworld array.
+	 *
+	 * @method getAll
+	 * @param req Request
+	 * @param res Response
+	 */
+	public getAll = async (req: Request, res: Response) => {
+		this.logger.debug('get all messages.');
 
-    res.status(200).json({ method: 'GET', messages: this.helloWorld });
+		res.status(200).json({
+			method: 'GET',
+			messages: this.helloWorld
+		});
 
-  }
+	}
 
-  /**
-   * Returns helloworld message if id exists.
-   *
-   * @method getById
-   * @param req Request
-   * @param res Response
-   */
-  public getById = async (req: Request, res: Response) => {
-    this.logger.debug('get message by id.');
+	/**
+	 * Returns helloworld message if id exists.
+	 *
+	 * @method getById
+	 * @param req Request
+	 * @param res Response
+	 */
+	public getById = async (req: Request, res: Response) => {
+		this.logger.debug('get message by id.');
 
-    const id = Number(req.params.id);
-    const result = this.helloWorld.find(element => element.getId() === id );
-    
-    res.status(200).json({ method: 'GET', message: result || 'No result' });
+		const id = Number(req.params.id);
+		const result = this.helloWorld.find(element => element.getId() === id);
 
-  }
+		res.status(200).json({
+			method: 'GET',
+			message: result || 'No result'
+		});
 
-  /**
-   * Adds new message into helloworld array.
-   *
-   * @method post
-   * @param req Request
-   * @param res Response
-   */
-  public post = async (req: Request, res: Response) => {
-    this.logger.debug('postHelloWorld response.');
+	}
 
-    this.helloWorld.push(new HelloWorld(req.body.id, req.body.name));
+	/**
+	 * Adds new message into helloworld array.
+	 *
+	 * @method post
+	 * @param req Request
+	 * @param res Response
+	 */
+	public post = async (req: Request, res: Response) => {
+		this.logger.debug('postHelloWorld response.');
 
-    res.status(200).json({ method: 'POST', message: this.helloWorld });
-  }
+		this.helloWorld.push(new HelloWorld(req.body.id, req.body.name));
 
-  /**
-   * Modifies helloworld message if id exists.
-   *
-   * @method put
-   * @param req Request
-   * @param res Response
-   */
-  public put = async (req: Request, res: Response) => {
-    this.logger.debug('putHelloWorld response.');
+		res.status(200).json({
+			method: 'POST',
+			message: this.helloWorld
+		});
+	}
 
-    const id = Number(req.params.id);
-    const name = req.body.name;
+	/**
+	 * Modifies helloworld message if id exists.
+	 *
+	 * @method put
+	 * @param req Request
+	 * @param res Response
+	 */
+	public put = async (req: Request, res: Response) => {
+		this.logger.debug('putHelloWorld response.');
 
-    const result = this.helloWorld.map(element => element.getId() === id ? element.replaceName(name) : element );
-    res.status(200).json({ method: 'PUT', message: this.helloWorld });
-  }
+		const id = Number(req.params.id);
+		const name = req.body.name;
 
-  /**
-   * Delete hellosworld array.
-   *
-   * @method delete
-   * @param req Request
-   * @param res Response
-   */
-  public deleteAll = (req: Request, res: Response) => {
-    this.logger.debug('Delete array.');
+		const result = this.helloWorld.map(element => element.getId() === id ? element.replaceName(name) : element);
+		res.status(200).json({
+			method: 'PUT',
+			message: this.helloWorld
+		});
+	}
 
-    res.status(200).json({ method: 'DELETE', message: 'Not yet implemented.' });
-  }
+	/**
+	 * Delete hellosworld array.
+	 *
+	 * @method delete
+	 * @param req Request
+	 * @param res Response
+	 */
+	public deleteAll = (req: Request, res: Response) => {
+		this.logger.debug('Delete array.');
 
-  /**
-   * Delete hellosworld message if id exists.
-   *
-   * @method delete
-   * @param req Request
-   * @param res Response
-   */
-  public deleteById = (req: Request, res: Response) => {
-    this.logger.debug('Delete message.');
+		res.status(200).json({
+			method: 'DELETE',
+			message: 'Not yet implemented.'
+		});
+	}
 
-    res.status(200).json({ method: 'DELETE', message: 'Not yet implemented.' });
-  }
+	/**
+	 * Delete hellosworld message if id exists.
+	 *
+	 * @method delete
+	 * @param req Request
+	 * @param res Response
+	 */
+	public deleteById = (req: Request, res: Response) => {
+		this.logger.debug('Delete message.');
+
+		res.status(200).json({
+			method: 'DELETE',
+			message: 'Not yet implemented.'
+		});
+	}
 }

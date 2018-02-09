@@ -1,43 +1,43 @@
 {
-  "name": "simple-rest-service",
-  "version": "1.0.0",
-  "description": "Simple REST application built using @yggdrasil architecture.",
-  "license": "MIT",
-  "author": "David Lopez",
-  "scripts": {
-    "clean": "gulp clean",
-    "clean:all": "gulp clean:all",
-    "compile": "npm run tslint && gulp build",
-    "compile:test": "npm run tslint:test && gulp build:test",
-    "start": "npm run tslint && gulp start",
-    "test": "gulp compile:test && nyc --require ts-node/register mocha --exit --recursive \"src/**/*.spec.ts\"",
-    "tslint": "tslint -p tsconfig.json -t verbose",
-    "tslint:test": "tslint -p tsconfig.spec.json -t verbose"
-  },
-  "dependencies": {
-    "@yggdrasil/core": "canary",
-    "@yggdrasil/mvc": "canary"
-  },
-  "devDependencies": {
-    "@yggdrasil/devs": "canary",
-    "@yggdrasil/testing": "canary"
-  },
-  "nyc": {
-    "include": [
-      "src/**/*.ts"
-    ],
-    "extension": [
-      ".ts"
-    ],
-    "exclude": [
-      "**/index.ts",
-      "**/*.spec.ts",
-      "**/*.d.ts"
-    ],
-    "reporter": [
-      "text-summary",
-      "html"
-    ],
-    "all": true
-  }
+	"name": "simple-rest-service",
+	"version": "1.0.0",
+	"description": "Simple REST application built using @yggdrasil architecture.",
+	"license": "MIT",
+	"author": "David Lopez",
+	"scripts": {
+		"clean": "gulp clean",
+		"clean:all": "gulp clean:all",
+		"compile": "yarn run tslint && gulp build",
+		"compile:test": "yarn run tslint:test && gulp build:test",
+		"start": "yarn run tslint && gulp start",
+		"test": "gulp compile:test && nyc --require ts-node/register mocha --exit --recursive \"src/**/*.spec.ts\"",
+		"tslint": "tslint -p tsconfig.json -t verbose",
+		"tslint:test": "tslint -p tsconfig.spec.json -t verbose"
+	},
+	"dependencies": {
+		"@yggdrasil/core": "canary",
+		"@yggdrasil/mvc": "canary"
+	},
+	"devDependencies": {
+		"@yggdrasil/devs": "canary",
+		"@yggdrasil/testing": "canary"
+	},
+	"nyc": {
+		"include": [
+			"src/**/*.ts"
+		],
+		"extension": [
+			".ts"
+		],
+		"exclude": [
+			"**/index.ts",
+			"**/*.spec.ts",
+			"**/*.d.ts"
+		],
+		"reporter": [
+			"text-summary",
+			"html"
+		],
+		"all": true
+	}
 }

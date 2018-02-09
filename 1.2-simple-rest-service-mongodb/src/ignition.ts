@@ -1,20 +1,27 @@
 /** yggdrasil imports */
-import { IYggdrasilOptions, EApplicationType } from '@yggdrasil/core/modules/startup';
-import { Server } from '@yggdrasil/mvc';
+import {
+	IYggdrasilOptions,
+	EApplicationType
+} from '@yggdrasil/core/modules/startup';
+import {
+	Server
+} from '@yggdrasil/mvc';
 
 /** Application imports */
-import { YggdrasilServer } from './server';
+import {
+	YggdrasilServer
+} from './server';
 
 const options: IYggdrasilOptions = {
-  application: {
-    type: EApplicationType.REST,
-    database: {
-      type: 'mongodb'
-    }
-  }
+	application: {
+		type: EApplicationType.REST,
+		database: {
+			type: 'mongodb'
+		}
+	}
 };
 
 /**
  * Start yggdrasil application
  */
-export const app: Promise<Server> = new YggdrasilServer().bootstrap(3012, options);
+export const app: Promise < Server > = new YggdrasilServer().bootstrap(3012, options);

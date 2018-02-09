@@ -1,27 +1,28 @@
 {
-  "name": "pug-simple-application",
-  "version": "1.0.0",
-  "description": "Simple application built using @yggdrasil architecture and 'pug' view template.",
-  "license": "MIT",
-  "author": "David Lopez",
-  "scripts": {
-    "clean": "gulp clean",
-    "clean:all": "gulp clean:all",
-    "compile": "gulp build",
-    "start": "gulp start",
-    "test": "gulp compile:test && mocha dist --exit --recursive",
-    "tslint": "tslint -p tsconfig.json -t verbose",
-    "tslint:test": "tslint -p tsconfig.spec.json -t verbose"
-  },
-  "dependencies": {
-    "@yggdrasil/core": "canary",
-    "@yggdrasil/mvc": "canary",
-    "bootstrap": "^4.0.0",
-    "jquery": "^3.3.1",
-    "pug": "^2.0.0-rc.4"
-  },
-  "devDependencies": {
-    "@yggdrasil/devs": "canary",
-    "@yggdrasil/testing": "canary"
-  }
+	"name": "pug-simple-application",
+	"version": "1.0.0",
+	"description": "Simple application built using @yggdrasil architecture and 'pug' view template.",
+	"license": "MIT",
+	"author": "David Lopez",
+	"scripts": {
+		"clean": "gulp clean",
+		"clean:all": "gulp clean:all",
+		"compile": "yarn run tslint && gulp build",
+		"compile:test": "yarn run tslint:test && gulp build:test",
+		"start": "yarn run tslint && gulp start",
+		"test": "gulp compile:test && mocha dist --exit --recursive",
+		"tslint": "tslint -p tsconfig.json -t verbose",
+		"tslint:test": "tslint -p tsconfig.spec.json -t verbose"
+	},
+	"dependencies": {
+		"@yggdrasil/core": "canary",
+		"@yggdrasil/mvc": "canary",
+		"bootstrap": "^4.0.0",
+		"jquery": "^3.3.1",
+		"pug": "^2.0.0-rc.4"
+	},
+	"devDependencies": {
+		"@yggdrasil/devs": "canary",
+		"@yggdrasil/testing": "canary"
+	}
 }
