@@ -108,6 +108,8 @@ export class BasicCtrl {
 		const reqData = new Data(req.body.title, req.body.text);
 		const id = req.params.id;
 
+		this.logger.debug(JSON.stringify(reqData), ',ID:', id);
+
 		const errors = await validate(reqData);
 		if (errors.length > 0) {
 			this.logger.error('Errors validating request body object');
@@ -116,13 +118,22 @@ export class BasicCtrl {
 				error: errors
 			});
 		} else {
-			await this.manager.updateById(Data, reqData, id);
-			res.status(200).json({
-				method: 'PUT',
-				data: {
-					message: `Updated data with id: ${id}`
-				}
-			});
+			try {
+				// TODO: Review this update
+				await this.manager.updateById(Data, id, reqData);
+				res.status(200).json({
+					method: 'PUT',
+					data: {
+						message: `Updated data with id: ${id}`
+					}
+				});
+			} catch (error) {
+				this.logger.error(error);
+				res.status(500).json({
+					method: 'PUT',
+					error: error.message
+				});
+			}
 		}
 
 	}
