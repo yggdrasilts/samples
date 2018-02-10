@@ -1,12 +1,6 @@
-import {
-	suite,
-	test,
-	YggdrasilTest
-} from '@yggdrasil/testing';
+import { suite, test, YggdrasilTest } from '@yggdrasil/testing';
 
-import {
-	Data
-} from './Data';
+import { Data } from './Data';
 
 process.env.NODE_ENV = 'test';
 

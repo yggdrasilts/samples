@@ -1,29 +1,15 @@
 /** yggdrasil imports */
-import {
-	FileLogger
-} from '@yggdrasil/core';
-import {
-	Request,
-	Response
-} from '@yggdrasil/mvc';
-import {
-	MongoDBRepository
-} from '@yggdrasil/data';
+import { FileLogger } from '@yggdrasil/core';
+import { Request, Response } from '@yggdrasil/mvc';
+import { MongoDBRepository } from '@yggdrasil/data';
 
 /** Third-party imports */
-import {
-	Connection,
-	MongoEntityManager
-} from 'typeorm';
-import {
-	validate
-} from 'class-validator';
+import { Connection, MongoEntityManager } from 'typeorm';
+import { validate } from 'class-validator';
 
 /** Application imports */
 /** -> Entities */
-import {
-	Data
-} from '../../repository/entities/Data';
+import { Data } from '../../repository/entities/Data';
 
 /**
  * @class BasicCtrl

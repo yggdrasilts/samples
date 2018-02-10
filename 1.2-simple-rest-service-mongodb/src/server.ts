@@ -40,9 +40,7 @@ export class YggdrasilServer extends Bootstrap {
 	public api(router: Router, repository: MongoDBRepository): IBootstrapRoute {
 		const basicAPI = new BasicAPIRoute(router, repository);
 
-		return {
-			prefix: '/api'
-		};
+		return { prefix: '/api' };
 	}
 
 }
