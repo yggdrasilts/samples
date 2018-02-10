@@ -135,6 +135,46 @@ class HelloWorldCtrlTestSuite extends YggdrasilTest {
 			});
 	}
 
+	@test('should delete message by id')
+	public testDeleteById(done) {
+		this.chai.request(this.server)
+			.post('/api/helloworld')
+			.send({
+				id: 1,
+				name: 'Second'
+			})
+			.end((err, res) => {
+				this.should.not.exist(err);
+				res.should.have.status(200);
+				res.body.should.be.a('object');
+				res.body.should.have.a.property('method');
+				res.body.method.should.be.equal('POST');
+				res.body.should.have.a.property('message');
+				res.body.message.should.to.be.an('array').that.to.deep.equal([{
+					id: 0,
+					name: 'Ocean'
+				}, {
+					id: 1,
+					name: 'Second'
+				}]);
+				this.chai.request(this.server)
+					.delete('/api/helloworld/1')
+					.end((errDel, resDel) => {
+						this.should.not.exist(errDel);
+						resDel.should.have.status(200);
+						resDel.body.should.be.a('object');
+						resDel.body.should.have.a.property('method');
+						resDel.body.method.should.be.equal('DELETE');
+						resDel.body.should.have.a.property('message');
+						resDel.body.message.should.to.be.an('array').that.to.deep.equal([{
+							id: 0,
+							name: 'Ocean'
+						}]);
+						done();
+					});
+			});
+	}
+
 	@test('should delete all messages')
 	public testDeleteAll(done) {
 		this.chai.request(this.server)
@@ -146,23 +186,7 @@ class HelloWorldCtrlTestSuite extends YggdrasilTest {
 				res.body.should.have.a.property('method');
 				res.body.method.should.be.equal('DELETE');
 				res.body.should.have.a.property('message');
-				res.body.message.should.be.equal('Not yet implemented.');
-				done();
-			});
-	}
-
-	@test('should delete all messages')
-	public testDeleteById(done) {
-		this.chai.request(this.server)
-			.delete('/api/helloworld/0')
-			.end((err, res) => {
-				this.should.not.exist(err);
-				res.should.have.status(200);
-				res.body.should.be.a('object');
-				res.body.should.have.a.property('method');
-				res.body.method.should.be.equal('DELETE');
-				res.body.should.have.a.property('message');
-				res.body.message.should.be.equal('Not yet implemented.');
+				res.body.message.should.to.be.an('array').that.is.empty;
 				done();
 			});
 	}

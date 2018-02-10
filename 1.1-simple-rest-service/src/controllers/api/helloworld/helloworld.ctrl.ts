@@ -114,9 +114,11 @@ export class HelloWorldCtrl {
 	public deleteAll = (req: Request, res: Response) => {
 		this.logger.debug('Delete array.');
 
+		this.helloWorld = new Array();
+
 		res.status(200).json({
 			method: 'DELETE',
-			message: 'Not yet implemented.'
+			message: this.helloWorld
 		});
 	}
 
@@ -130,9 +132,13 @@ export class HelloWorldCtrl {
 	public deleteById = (req: Request, res: Response) => {
 		this.logger.debug('Delete message.');
 
+		const id = Number(req.params.id);
+
+		this.helloWorld = this.helloWorld.filter(element => element.getId() !== id);
+
 		res.status(200).json({
 			method: 'DELETE',
-			message: 'Not yet implemented.'
+			message: this.helloWorld
 		});
 	}
 }
