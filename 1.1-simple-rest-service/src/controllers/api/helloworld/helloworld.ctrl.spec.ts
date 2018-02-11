@@ -28,7 +28,7 @@ class HelloWorldCtrlTestSuite extends YggdrasilTest {
 				res.body.should.have.a.property('method');
 				res.body.method.should.be.equal('GET');
 				res.body.should.have.a.property('messages');
-				res.body.messages.should.to.be.an('array').that.is.empty;
+				res.body.messages.should.to.be.an('array').that.is.empty();
 				done();
 			});
 	}
@@ -186,7 +186,7 @@ class HelloWorldCtrlTestSuite extends YggdrasilTest {
 				res.body.should.have.a.property('method');
 				res.body.method.should.be.equal('DELETE');
 				res.body.should.have.a.property('message');
-				res.body.message.should.to.be.an('array').that.is.empty;
+				res.body.message.should.to.be.an('array').that.is.empty();
 				done();
 			});
 	}

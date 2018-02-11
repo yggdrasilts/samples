@@ -8,7 +8,7 @@ block content
 				| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue mi urna, hendrerit lacinia ipsum facilisis a. Vivamus tincidunt lacus eget justo cursus cursus. In auctor velit neque, vel semper mi euismod ac.
 			.col-md
 				.form-area
-					form(role="form")
+					form(role="form" action="/views/sendContactInfo" method="POST")
 						.form-group
 							input#name.form-control(type="text" name="name" placeholder="Name" required="")
 						.form-group
@@ -19,4 +19,4 @@ block content
 							input#subject.form-control(type="text" name="subject" placeholder="Subject" required="")
 						.form-group
 							textarea#message.form-control(type="textarea" placeholder="Message" maxlength="140" rows="7")
-						button#submit.btn.btn-primary.pull-right(type="button" name="submit") Send Form
+						button#submit.btn.btn-primary.pull-right(type="submit" name="submit") Send Form

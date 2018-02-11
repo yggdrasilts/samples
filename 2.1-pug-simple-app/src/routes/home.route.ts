@@ -9,7 +9,8 @@ import {
 
 /** Application controllers imports */
 import {
-	HomeCtrl
+	HomeCtrl,
+	ContactCtrl
 } from '../controllers/routes';
 
 /**
@@ -23,11 +24,15 @@ export class HomeRoute extends BaseRoutes {
 	/** HomeCtrl Ctrl */
 	private homeCtrl: HomeCtrl;
 
+	/** ContactCtrl Ctrl */
+	private contactCtrl: ContactCtrl;
+
 	/** Default constructor */
 	constructor(router: Router) {
 		super();
 		this.logger = new FileLogger(HomeRoute.name);
 		this.homeCtrl = new HomeCtrl();
+		this.contactCtrl = new ContactCtrl();
 
 		/** Creates routes */
 		this.create(router);
@@ -44,6 +49,8 @@ export class HomeRoute extends BaseRoutes {
 
 		router.route('/home').get(this.homeCtrl.home);
 		router.route('/contact').get(this.homeCtrl.contact);
+
+		router.route('/sendContactInfo').post(this.contactCtrl.showContactInfo);
 	}
 
 }

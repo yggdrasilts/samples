@@ -7,12 +7,10 @@
 	"scripts": {
 		"clean": "gulp clean",
 		"clean:all": "gulp clean:all",
-		"compile": "yarn run tslint && gulp build",
-		"compile:test": "yarn run tslint:test && gulp build:test",
-		"start": "yarn run tslint && gulp start",
-		"test": "gulp compile:test && nyc --require ts-node/register mocha --exit --recursive \"src/**/*.spec.ts\"",
-		"tslint": "tslint -p tsconfig.json -t verbose",
-		"tslint:test": "tslint -p tsconfig.spec.json -t verbose"
+		"compile": "gulp build",
+		"compile:test": "gulp build:test",
+		"start": "gulp start",
+		"test": "gulp compile:test && nyc --require ts-node/register mocha --exit --recursive \"src/**/*.spec.ts\""
 	},
 	"dependencies": {
 		"@yggdrasil/core": "canary",
