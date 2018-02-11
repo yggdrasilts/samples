@@ -17,6 +17,7 @@ const options: IYggdrasilOptions = {
 	application: {
 		type: EApplicationType.WEB,
 		views: {
+			homeURL: '/views/home',
 			view_engine: EViewEngine.PUG
 		}
 	}

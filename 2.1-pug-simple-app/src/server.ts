@@ -26,7 +26,6 @@ export class YggdrasilServer extends Bootstrap {
 	/** Default constructor */
 	constructor() {
 		super();
-
 		this.logger = new FileLogger(YggdrasilServer.name);
 	}
 
@@ -35,9 +34,7 @@ export class YggdrasilServer extends Bootstrap {
 	 * @param router Express Router
 	 */
 	public routes(router: Router) {
-
 		const homeRoute = new HomeRoute(router);
-
 	}
 
 }

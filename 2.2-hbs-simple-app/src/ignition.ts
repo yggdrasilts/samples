@@ -1,46 +1,19 @@
 /** yggdrasil imports */
-import {
-	IYggdrasilOptions,
-	EApplicationType,
-	EViewEngine
-} from '@yggdrasil/core/modules/startup';
-import {
-	Server
-} from '@yggdrasil/mvc';
+import { IYggdrasilOptions, EApplicationType, EViewEngine } from '@yggdrasil/core/modules/startup';
+import { Server } from '@yggdrasil/mvc';
 
 /** Application imports */
-import {
-	YggdrasilServer
-} from './server';
-import * as hbs from 'hbs';
+import { YggdrasilServer } from './server';
 
 const options: IYggdrasilOptions = {
 	application: {
 		type: EApplicationType.WEB,
 		views: {
+			homeURL: '/views/home',
 			view_engine: EViewEngine.HANDLEBARS
 		}
 	}
 };
-
-// TODO: Review and transform to typescript code
-hbs.registerPartials('dist/views/partials');
-const blocks = {};
-
-hbs.registerHelper('extend', (name, context) => {
-	let block = blocks[name];
-	if (!block) {
-		block = blocks[name] = [];
-	}
-
-	block.push(context.fn(this));
-});
-hbs.registerHelper('block', (name) => {
-	const val = (blocks[name] || []).join('\n');
-
-	blocks[name] = [];
-	return val;
-});
 
 /**
  * Start yggdrasil application
