@@ -1,22 +1,11 @@
 /** yggdrasil imports */
-import {
-	Router
-} from '@yggdrasil/mvc';
-import {
-	FileLogger,
-	Bootstrap
-} from '@yggdrasil/core';
-import {
-	IBootstrapRoute
-} from '@yggdrasil/core/modules/startup';
-import {
-	MongoDBRepository
-} from '@yggdrasil/data';
+import { Router } from '@yggdrasil/mvc';
+import { FileLogger, Bootstrap } from '@yggdrasil/core';
+import { IBootstrapRoute } from '@yggdrasil/core/modules/startup';
+import { MongoDBRepository } from '@yggdrasil/data';
 
 /** Application imports */
-import {
-	BasicAPIRoute
-} from './routes/api/basic.route';
+import { BasicAPIRoute } from './routes/api/basic.route';
 
 /**
  * @class YggdrasilServer
@@ -29,7 +18,6 @@ export class YggdrasilServer extends Bootstrap {
 	/** Default constructor */
 	constructor() {
 		super();
-
 		this.logger = new FileLogger(YggdrasilServer.name);
 	}
 
