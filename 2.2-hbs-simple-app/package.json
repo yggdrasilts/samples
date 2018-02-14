@@ -1,7 +1,7 @@
 {
 	"name": "hbs-simple-application",
 	"version": "1.0.0",
-	"description": "Simple application built using @yggdrasil architecture and 'hbs' view template.",
+	"description": "Simple application built using @yggdrasilts architecture and 'hbs' view template.",
 	"license": "MIT",
 	"author": "David Lopez",
 	"scripts": {
@@ -13,14 +13,14 @@
 		"test": "gulp compile:test && nyc --require ts-node/register mocha --exit --recursive \"src/**/*.spec.ts\""
 	},
 	"dependencies": {
-		"@yggdrasil/core": "canary",
-		"@yggdrasil/mvc": "canary",
+		"@yggdrasilts/core": "canary",
+		"@yggdrasilts/mvc": "canary",
 		"bootstrap": "^4.0.0",
 		"hbs": "^4.0.1",
 		"jquery": "^3.3.1"
 	},
 	"devDependencies": {
-		"@yggdrasil/devs": "canary",
-		"@yggdrasil/testing": "canary"
+		"@yggdrasilts/devs": "canary",
+		"@yggdrasilts/testing": "canary"
 	}
 }

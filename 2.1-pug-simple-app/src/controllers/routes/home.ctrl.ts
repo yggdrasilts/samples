@@ -2,10 +2,10 @@
 import {
 	Request,
 	Response
-} from '@yggdrasil/mvc';
+} from '@yggdrasilts/mvc';
 import {
 	FileLogger
-} from '@yggdrasil/core';
+} from '@yggdrasilts/core';
 
 /**
  * @class HomeCtrl

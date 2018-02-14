@@ -2,10 +2,10 @@
 import {
 	BaseRoutes,
 	Router
-} from '@yggdrasil/mvc';
+} from '@yggdrasilts/mvc';
 import {
 	FileLogger
-} from '@yggdrasil/core';
+} from '@yggdrasilts/core';
 
 /** Application controllers imports */
 import {

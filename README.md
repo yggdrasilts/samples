@@ -1,2 +1,2 @@
 # samples
-Samples built with @yggdrasil architecture.
+Samples built with @yggdrasilts architecture.

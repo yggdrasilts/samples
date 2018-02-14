@@ -3,10 +3,10 @@ import {
 	IYggdrasilOptions,
 	EApplicationType,
 	EViewEngine
-} from '@yggdrasil/core/modules/startup';
+} from '@yggdrasilts/core/modules/startup';
 import {
 	Server
-} from '@yggdrasil/mvc';
+} from '@yggdrasilts/mvc';
 
 /** Application imports */
 import {

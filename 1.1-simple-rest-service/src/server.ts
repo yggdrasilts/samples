@@ -1,14 +1,14 @@
 /** yggdrasil imports */
 import {
 	Router
-} from '@yggdrasil/mvc';
+} from '@yggdrasilts/mvc';
 import {
 	FileLogger,
 	Bootstrap
-} from '@yggdrasil/core';
+} from '@yggdrasilts/core';
 import {
 	IBootstrapRoute
-} from '@yggdrasil/core/modules/startup';
+} from '@yggdrasilts/core/modules/startup';
 
 /** Application imports */
 import {

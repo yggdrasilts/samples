@@ -1,7 +1,7 @@
 /** yggdrasil imports */
-import { FileLogger } from '@yggdrasil/core';
-import { Request, Response } from '@yggdrasil/mvc';
-import { MongoDBRepository } from '@yggdrasil/data';
+import { FileLogger } from '@yggdrasilts/core';
+import { Request, Response } from '@yggdrasilts/mvc';
+import { MongoDBRepository } from '@yggdrasilts/data';
 
 /** Third-party imports */
 import { Connection, MongoEntityManager } from 'typeorm';

@@ -2,7 +2,7 @@ import {
 	suite,
 	test,
 	YggdrasilTest
-} from '@yggdrasil/testing';
+} from '@yggdrasilts/testing';
 
 import {
 	HelloWorld

@@ -1,7 +1,7 @@
 /** yggdrasil imports */
-import { BaseRoutes, Router } from '@yggdrasil/mvc';
-import { FileLogger } from '@yggdrasil/core';
-import { MysqlDBRepository } from '@yggdrasil/data';
+import { BaseRoutes, Router } from '@yggdrasilts/mvc';
+import { FileLogger } from '@yggdrasilts/core';
+import { MysqlDBRepository } from '@yggdrasilts/data';
 
 /** Application controllers imports */
 import { BasicCtrl } from '../../controllers/api';

@@ -1,11 +1,11 @@
 /** yggdrasil imports */
 import {
 	FileLogger
-} from '@yggdrasil/core';
+} from '@yggdrasilts/core';
 import {
 	Request,
 	Response
-} from '@yggdrasil/mvc';
+} from '@yggdrasilts/mvc';
 
 /** Application imports */
 import {

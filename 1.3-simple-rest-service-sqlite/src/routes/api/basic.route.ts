@@ -1,7 +1,7 @@
 /** yggdrasil imports */
-import { BaseRoutes, Router } from '@yggdrasil/mvc';
-import { FileLogger } from '@yggdrasil/core';
-import { SQLiteDBRepository } from '@yggdrasil/data';
+import { BaseRoutes, Router } from '@yggdrasilts/mvc';
+import { FileLogger } from '@yggdrasilts/core';
+import { SQLiteDBRepository } from '@yggdrasilts/data';
 
 /** Application controllers imports */
 import { BasicCtrl } from '../../controllers/api';

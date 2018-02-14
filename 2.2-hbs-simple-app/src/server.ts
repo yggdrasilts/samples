@@ -1,7 +1,7 @@
 /** yggdrasil imports */
-import { FileLogger, Bootstrap } from '@yggdrasil/core';
-import { IBootstrapRoute } from '@yggdrasil/core/modules/startup';
-import { Router } from '@yggdrasil/mvc';
+import { FileLogger, Bootstrap } from '@yggdrasilts/core';
+import { IBootstrapRoute } from '@yggdrasilts/core/modules/startup';
+import { Router } from '@yggdrasilts/mvc';
 
 /** Application imports */
 import { HomeRoute } from './routes/home.route';

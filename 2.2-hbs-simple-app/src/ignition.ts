@@ -1,6 +1,6 @@
 /** yggdrasil imports */
-import { IYggdrasilOptions, EApplicationType, EViewEngine } from '@yggdrasil/core/modules/startup';
-import { Server } from '@yggdrasil/mvc';
+import { IYggdrasilOptions, EApplicationType, EViewEngine } from '@yggdrasilts/core/modules/startup';
+import { Server } from '@yggdrasilts/mvc';
 
 /** Application imports */
 import { YggdrasilServer } from './server';

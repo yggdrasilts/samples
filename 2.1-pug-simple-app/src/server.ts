@@ -2,13 +2,13 @@
 import {
 	FileLogger,
 	Bootstrap
-} from '@yggdrasil/core';
+} from '@yggdrasilts/core';
 import {
 	IBootstrapRoute
-} from '@yggdrasil/core/modules/startup';
+} from '@yggdrasilts/core/modules/startup';
 import {
 	Router
-} from '@yggdrasil/mvc';
+} from '@yggdrasilts/mvc';
 
 /** Application imports */
 import {

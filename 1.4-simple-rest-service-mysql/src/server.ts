@@ -1,8 +1,8 @@
 /** yggdrasil imports */
-import { Router } from '@yggdrasil/mvc';
-import { FileLogger, Bootstrap } from '@yggdrasil/core';
-import { IBootstrapRoute } from '@yggdrasil/core/modules/startup';
-import { MysqlDBRepository } from '@yggdrasil/data';
+import { Router } from '@yggdrasilts/mvc';
+import { FileLogger, Bootstrap } from '@yggdrasilts/core';
+import { IBootstrapRoute } from '@yggdrasilts/core/modules/startup';
+import { MysqlDBRepository } from '@yggdrasilts/data';
 
 /** Application imports */
 import { BasicAPIRoute } from './routes/api/basic.route';

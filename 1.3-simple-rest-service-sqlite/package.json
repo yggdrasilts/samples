@@ -1,7 +1,7 @@
 {
 	"name": "simple-rest-service-sqlite",
 	"version": "1.0.0",
-	"description": "Simple REST application built using @yggdrasil architecture and using sqlite.",
+	"description": "Simple REST application built using @yggdrasilts architecture and using sqlite.",
 	"license": "MIT",
 	"author": "David Lopez",
 	"scripts": {
@@ -13,13 +13,13 @@
 		"test": "gulp compile:test && nyc --require ts-node/register mocha --exit --recursive \"src/**/*.spec.ts\""
 	},
 	"dependencies": {
-		"@yggdrasil/core": "canary",
-		"@yggdrasil/mvc": "canary",
-		"@yggdrasil/data": "canary"
+		"@yggdrasilts/core": "canary",
+		"@yggdrasilts/mvc": "canary",
+		"@yggdrasilts/data": "canary"
 	},
 	"devDependencies": {
-		"@yggdrasil/devs": "canary",
-		"@yggdrasil/testing": "canary"
+		"@yggdrasilts/devs": "canary",
+		"@yggdrasilts/testing": "canary"
 	},
 	"nyc": {
 		"include": [

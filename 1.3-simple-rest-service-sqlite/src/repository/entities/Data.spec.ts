@@ -1,4 +1,4 @@
-import { suite, test, YggdrasilTest } from '@yggdrasil/testing';
+import { suite, test, YggdrasilTest } from '@yggdrasilts/testing';
 
 import { Data } from './Data';
 
