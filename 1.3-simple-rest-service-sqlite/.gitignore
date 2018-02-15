@@ -9,3 +9,6 @@ db
 # Lock files
 package-lock.json
 yarn.lock
+
+# npmrc
+.npmrc
