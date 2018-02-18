@@ -27,4 +27,7 @@ export class Data {
 		this.text = text;
 	}
 
+	public replace(data: Data) {
+		this.id = data.id;
+	}
 }

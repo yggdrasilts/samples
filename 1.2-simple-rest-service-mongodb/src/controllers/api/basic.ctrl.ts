@@ -105,12 +105,12 @@ export class BasicCtrl {
 	public updateData = async (req: Request, res: Response) => {
 		this.logger.debug('updateData response.');
 
-		const reqData = new Data(req.body.title, req.body.text);
-		const id = req.params.id;
+		const newData = new Data(req.body.title, req.body.text);
+		const reqId = req.params.id;
 
-		this.logger.debug(JSON.stringify(reqData), ',ID:', id);
+		this.logger.debug(JSON.stringify(newData), ',ID:', reqId);
 
-		const errors = await validate(reqData);
+		const errors = await validate(newData);
 		if (errors.length > 0) {
 			this.logger.error('Errors validating request body object');
 			res.status(200).json({
@@ -118,22 +118,34 @@ export class BasicCtrl {
 				error: errors
 			});
 		} else {
-			try {
-				// TODO: Review this update
-				await this.manager.updateById(Data, id, reqData);
-				res.status(200).json({
-					method: 'PUT',
-					data: {
-						message: `Updated data with id: ${id}`
-					}
-				});
-			} catch (error) {
-				this.logger.error(error);
+			const dbData = await this.manager.findOneById(Data, reqId);
+
+			if (dbData) {
+				newData.replace(dbData);
+				try {
+					const result = await this.manager.save(newData);
+					res.status(200).json({
+						method: 'PUT',
+						data: {
+							message: `Updated data with id '${reqId}'`
+						}
+					});
+				} catch (error) {
+					this.logger.error(error);
+					res.status(500).json({
+						method: 'PUT',
+						error: error.message
+					});
+				}
+			} else {
+				const updMsg = `Data with id '${reqId}' not founded in db.`;
+				this.logger.info(updMsg);
 				res.status(500).json({
 					method: 'PUT',
-					error: error.message
+					error: updMsg
 				});
 			}
+
 		}
 
 	}
