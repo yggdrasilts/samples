@@ -1,12 +1,6 @@
-import {
-	suite,
-	test,
-	YggdrasilTest
-} from '@yggdrasilts/testing';
+import { suite, test, YggdrasilTest } from '@yggdrasilts/testing';
 
-import {
-	HelloWorld
-} from './helloworld.dto';
+import { HelloWorld } from './helloworld.dto';
 
 process.env.NODE_ENV = 'test';
 

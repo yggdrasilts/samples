@@ -1,12 +1,6 @@
-import {
-	suite,
-	test,
-	YggdrasilTest
-} from '@yggdrasilts/testing';
+import { suite, test, YggdrasilTest } from '@yggdrasilts/testing';
 
-import {
-	app
-} from '../ignition';
+import { app } from '../ignition';
 
 process.env.NODE_ENV = 'test';
 

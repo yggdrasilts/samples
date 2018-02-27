@@ -1,16 +1,9 @@
 /** yggdrasil imports */
-import {
-	FileLogger
-} from '@yggdrasilts/core';
-import {
-	Request,
-	Response
-} from '@yggdrasilts/mvc';
+import { FileLogger } from '@yggdrasilts/core';
+import { Request, Response } from '@yggdrasilts/mvc';
 
 /** Application imports */
-import {
-	HelloWorld
-} from './helloworld.dto';
+import { HelloWorld } from './helloworld.dto';
 
 /**
  * @class HelloWorldCtrl
