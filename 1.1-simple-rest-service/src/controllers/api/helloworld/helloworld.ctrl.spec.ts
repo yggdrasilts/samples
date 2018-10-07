@@ -191,3 +191,5 @@ class HelloWorldCtrlTestSuite extends YggdrasilTest {
 			});
 	}
 }
+
+export default HelloWorldCtrlTestSuite;

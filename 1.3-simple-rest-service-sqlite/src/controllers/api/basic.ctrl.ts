@@ -45,7 +45,7 @@ export class BasicCtrl {
 		try {
 			if (req.params.id) {
 				this.logger.debug(`Search data by id: ${req.params.id}.`);
-				data = await this.manager.findOneById(Data, req.params.id);
+				data = await this.manager.findByIds(Data, req.params.id);
 			} else {
 				this.logger.debug('Gets all data.');
 				data = await this.manager.find(Data);
@@ -119,14 +119,21 @@ export class BasicCtrl {
 			});
 		} else {
 			try {
-				// TODO: Review this update
-				await this.manager.updateById(Data, id, reqData);
-				res.status(200).json({
-					method: 'PUT',
-					data: {
-						message: `Updated data with id: ${id}`
-					}
-				});
+				reqData.id = id;
+				if (this.manager.hasId(reqData)) {
+					await this.manager.update(Data, id, reqData);
+					res.status(200).json({
+						method: 'PUT',
+						data: {
+							message: `Updated data with id: ${id}`
+						}
+					});
+				} else {
+					res.status(200).json({
+						method: 'PUT',
+						error: `There is no item with id '${id}'`
+					});
+				}
 			} catch (error) {
 				this.logger.error(error);
 				res.status(500).json({
@@ -148,7 +155,7 @@ export class BasicCtrl {
 	public deleteData = async (req: Request, res: Response) => {
 		this.logger.debug('deleteData response.');
 
-		const data = await this.manager.findOneById(Data, req.params.id);
+		const data = await this.manager.findByIds(Data, req.params.id);
 
 		if (data) {
 			const result = await this.manager.remove(data);
