@@ -17,11 +17,11 @@ import {
  */
 export class APIRoute extends BaseRoutes {
 
-	/** APIRoute logger */
-	public logger: FileLogger;
-
 	/** Declare controllers */
 	private helloWorldCtrl: HelloWorldCtrl;
+
+	/** APIRoute logger */
+	public logger: FileLogger;
 
 	/** Default constructor */
 	constructor(router: Router) {
