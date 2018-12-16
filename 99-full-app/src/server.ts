@@ -1,7 +1,7 @@
 /** yggdrasil imports */
 import { Bootstrap, IBootstrapRoute } from '@yggdrasil/startup';
 import { Router } from '@yggdrasil/mvc';
-import { FileLogger } from '@yggdrasil/core';
+import { YGLogger } from '@yggdrasil/core';
 
 /** Application imports */
 import { BasicAPIRoute } from './routes/api/basic.route';
@@ -13,13 +13,13 @@ import { IndexRoute } from './routes/index.route';
 export class YggdrasilServer extends Bootstrap {
 
   /** YggdrasilServer logger */
-  public logger: FileLogger;
+  public logger: YGLogger;
 
   /** Default constructor */
   constructor() {
     super();
 
-    this.logger = new FileLogger(YggdrasilServer.name);
+    this.logger = new YGLogger(YggdrasilServer.name);
   }
 
   /**

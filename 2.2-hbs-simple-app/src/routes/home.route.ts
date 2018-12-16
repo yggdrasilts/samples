@@ -4,7 +4,7 @@ import {
 	Router
 } from '@yggdrasilts/mvc';
 import {
-	FileLogger
+	YGLogger
 } from '@yggdrasilts/core';
 
 /** Application controllers imports */
@@ -17,16 +17,16 @@ import {
  */
 export class HomeRoute extends BaseRoutes {
 
-	/** HomeCtrl logger */
-	public logger: FileLogger;
-
 	/** HomeCtrl Ctrl */
 	private homeCtrl: HomeCtrl;
+
+	/** HomeCtrl logger */
+	public logger: YGLogger;
 
 	/** Default constructor */
 	constructor(router: Router) {
 		super();
-		this.logger = new FileLogger(HomeRoute.name);
+		this.logger = new YGLogger(HomeRoute.name);
 		this.homeCtrl = new HomeCtrl();
 
 		/** Creates routes */

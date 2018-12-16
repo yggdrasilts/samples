@@ -1,6 +1,6 @@
 /** yggdrasil imports */
 import { BaseRoutes, Router } from '@yggdrasil/mvc';
-import { FileLogger } from '@yggdrasil/core';
+import { YGLogger } from '@yggdrasil/core';
 
 /** Application controllers imports */
 import { IndexCtrl } from '../controllers/routes/index.ctrl';
@@ -11,7 +11,7 @@ import { IndexCtrl } from '../controllers/routes/index.ctrl';
 export class IndexRoute extends BaseRoutes {
 
   /** IndexRoute logger */
-  public logger: FileLogger;
+  public logger: YGLogger;
 
   /** IndexRoute Ctrl */
   private indexCtrl: IndexCtrl;
@@ -19,7 +19,7 @@ export class IndexRoute extends BaseRoutes {
   /** Default constructor */
   constructor(router: Router) {
     super();
-    this.logger = new FileLogger(IndexRoute.name);
+    this.logger = new YGLogger(IndexRoute.name);
     this.indexCtrl = new IndexCtrl();
 
     /** Creates routes */

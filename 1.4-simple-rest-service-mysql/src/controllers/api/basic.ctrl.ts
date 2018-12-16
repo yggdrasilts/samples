@@ -1,5 +1,5 @@
 /** yggdrasil imports */
-import { FileLogger } from '@yggdrasilts/core';
+import { YGLogger } from '@yggdrasilts/core';
 import { Request, Response } from '@yggdrasilts/mvc';
 import { MysqlDBRepository } from '@yggdrasilts/data';
 
@@ -17,7 +17,7 @@ import { Data } from '../../repository/entities/Data';
 export class BasicCtrl {
 
 	/** BasicCtrl logger */
-	private logger: FileLogger;
+	private logger: YGLogger;
 
 	/** Entity manager to acceed into db */
 	private manager: EntityManager;
@@ -27,7 +27,7 @@ export class BasicCtrl {
 	 * @param repository MysqlDBRepository
 	 */
 	constructor(repository: MysqlDBRepository) {
-		this.logger = new FileLogger(BasicCtrl.name);
+		this.logger = new YGLogger(BasicCtrl.name);
 		this.manager = repository.getManager();
 	}
 

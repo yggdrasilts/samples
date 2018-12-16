@@ -1,5 +1,5 @@
 /** yggdrasil imports */
-import { FileLogger } from '@yggdrasilts/core';
+import { YGLogger } from '@yggdrasilts/core';
 import { Request, Response } from '@yggdrasilts/mvc';
 import { MongoDBRepository } from '@yggdrasilts/data';
 
@@ -17,7 +17,7 @@ import { Data } from '../../repository/entities/Data';
 export class BasicCtrl {
 
 	/** BasicCtrl logger */
-	private logger: FileLogger;
+	private logger: YGLogger;
 
 	/** Entity manager to acceed into db */
 	private manager: MongoEntityManager;
@@ -27,7 +27,7 @@ export class BasicCtrl {
 	 * @param repository MongoDBRepository
 	 */
 	constructor(repository: MongoDBRepository) {
-		this.logger = new FileLogger(BasicCtrl.name);
+		this.logger = new YGLogger(BasicCtrl.name);
 		this.manager = repository.getManager();
 	}
 
@@ -45,7 +45,7 @@ export class BasicCtrl {
 		try {
 			if (req.params.id) {
 				this.logger.debug(`Search data by id: ${req.params.id}.`);
-				data = await this.manager.findOneById(Data, req.params.id);
+				data = await this.manager.findByIds(Data, req.params.id);
 			} else {
 				this.logger.debug('Gets all data.');
 				data = await this.manager.find(Data);
@@ -118,10 +118,10 @@ export class BasicCtrl {
 				error: errors
 			});
 		} else {
-			const dbData = await this.manager.findOneById(Data, reqId);
+			const dbData = await this.manager.findByIds(Data, reqId);
 
 			if (dbData) {
-				newData.replace(dbData);
+				newData.replace(dbData[0]);
 				try {
 					const result = await this.manager.save(newData);
 					res.status(200).json({
@@ -160,7 +160,7 @@ export class BasicCtrl {
 	public deleteData = async (req: Request, res: Response) => {
 		this.logger.debug('deleteData response.');
 
-		const data = await this.manager.findOneById(Data, req.params.id);
+		const data = await this.manager.findByIds(Data, req.params.id);
 
 		if (data) {
 			const result = await this.manager.remove(data);

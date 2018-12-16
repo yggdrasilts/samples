@@ -1,6 +1,6 @@
 /** yggdrasil imports */
 import { BaseRoutes, Router } from '@yggdrasil/mvc';
-import { FileLogger } from '@yggdrasil/core';
+import { YGLogger } from '@yggdrasil/core';
 
 /** Application controllers imports */
 import { BasicCtrl } from '../../controllers/api';
@@ -11,7 +11,7 @@ import { BasicCtrl } from '../../controllers/api';
 export class BasicAPIRoute extends BaseRoutes {
 
   /** BasicAPIRoute logger */
-  public logger: FileLogger;
+  public logger: YGLogger;
 
   /** Declare controllers */
   private basicCtrl: BasicCtrl;
@@ -19,7 +19,7 @@ export class BasicAPIRoute extends BaseRoutes {
   /** Default constructor */
   constructor(router: Router) {
     super();
-    this.logger = new FileLogger(BasicAPIRoute.name);
+    this.logger = new YGLogger(BasicAPIRoute.name);
     this.basicCtrl = new BasicCtrl();
 
     /** Creates routes */

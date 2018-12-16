@@ -4,7 +4,7 @@ import {
 	Response
 } from '@yggdrasilts/mvc';
 import {
-	FileLogger
+	YGLogger
 } from '@yggdrasilts/core';
 
 /**
@@ -13,11 +13,11 @@ import {
 export class HomeCtrl {
 
 	/** HomeCtrl logger */
-	private logger: FileLogger;
+	private logger: YGLogger;
 
 	/** Default constructor */
 	constructor() {
-		this.logger = new FileLogger(HomeCtrl.name);
+		this.logger = new YGLogger(HomeCtrl.name);
 	}
 
 	/**

@@ -1,6 +1,6 @@
 /** yggdrasil imports */
 import { Request, Response } from '@yggdrasil/mvc';
-import { FileLogger } from '@yggdrasil/core';
+import { YGLogger } from '@yggdrasil/core';
 
 /**
  * @class IndexCtrl
@@ -8,11 +8,11 @@ import { FileLogger } from '@yggdrasil/core';
 export class IndexCtrl {
 
   /** IndexCtrl logger */
-  private logger: FileLogger;
+  private logger: YGLogger;
 
   /** Default constructor */
   constructor() {
-    this.logger = new FileLogger(IndexCtrl.name);
+    this.logger = new YGLogger(IndexCtrl.name);
   }
 
   /**

@@ -1,6 +1,6 @@
 /** yggdrasil imports */
 import { Router } from '@yggdrasilts/mvc';
-import { FileLogger, Bootstrap } from '@yggdrasilts/core';
+import { YGLogger, Bootstrap } from '@yggdrasilts/core';
 import { IBootstrapRoute } from '@yggdrasilts/core/modules/startup';
 import { MongoDBRepository } from '@yggdrasilts/data';
 
@@ -13,12 +13,12 @@ import { BasicAPIRoute } from './routes/api/basic.route';
 export class YggdrasilServer extends Bootstrap {
 
 	/** YggdrasilServer logger */
-	public logger: FileLogger;
+	public logger: YGLogger;
 
 	/** Default constructor */
 	constructor() {
 		super();
-		this.logger = new FileLogger(YggdrasilServer.name);
+		this.logger = new YGLogger(YggdrasilServer.name);
 	}
 
 	/**

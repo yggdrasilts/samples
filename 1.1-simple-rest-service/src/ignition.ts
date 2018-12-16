@@ -9,7 +9,7 @@ import {
 
 /** Application imports */
 import {
-	YggdrasilServer
+	YGServer
 } from './server';
 
 const options: IYggdrasilOptions = {
@@ -21,4 +21,4 @@ const options: IYggdrasilOptions = {
 /**
  * Start yggdrasil application
  */
-export const app: Promise < Server > = new YggdrasilServer().bootstrap(3011, options);
+export const app: Promise < Server > = new YGServer().bootstrap(3011, options);

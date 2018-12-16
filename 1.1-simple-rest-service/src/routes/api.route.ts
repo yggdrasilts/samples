@@ -4,7 +4,7 @@ import {
 	Router
 } from '@yggdrasilts/mvc';
 import {
-	FileLogger
+	YGLogger
 } from '@yggdrasilts/core';
 
 /** Application controllers imports */
@@ -21,12 +21,12 @@ export class APIRoute extends BaseRoutes {
 	private helloWorldCtrl: HelloWorldCtrl;
 
 	/** APIRoute logger */
-	public logger: FileLogger;
+	public logger: YGLogger;
 
 	/** Default constructor */
 	constructor(router: Router) {
 		super();
-		this.logger = new FileLogger(APIRoute.name);
+		this.logger = new YGLogger(APIRoute.name);
 		this.helloWorldCtrl = new HelloWorldCtrl();
 
 		/** Creates routes */

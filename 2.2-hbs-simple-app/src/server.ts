@@ -1,5 +1,5 @@
 /** yggdrasil imports */
-import { FileLogger, Bootstrap } from '@yggdrasilts/core';
+import { YGLogger, Bootstrap } from '@yggdrasilts/core';
 import { IBootstrapRoute } from '@yggdrasilts/core/modules/startup';
 import { Router } from '@yggdrasilts/mvc';
 
@@ -12,15 +12,15 @@ import { HBSHelper } from './helpers/hbs.helper';
  */
 export class YggdrasilServer extends Bootstrap {
 
-	/** YggdrasilServer logger */
-	public logger: FileLogger;
-
 	private hbsHelper: HBSHelper;
+
+	/** YggdrasilServer logger */
+	public logger: YGLogger;
 
 	/** Default constructor */
 	constructor() {
 		super();
-		this.logger = new FileLogger(YggdrasilServer.name);
+		this.logger = new YGLogger(YggdrasilServer.name);
 
 		this.hbsHelper = new HBSHelper();
 		this.hbsHelper.registerPartials('dist/views/partials');

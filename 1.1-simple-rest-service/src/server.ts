@@ -3,7 +3,7 @@ import {
 	Router
 } from '@yggdrasilts/mvc';
 import {
-	FileLogger,
+	YGLogger,
 	Bootstrap
 } from '@yggdrasilts/core';
 import {
@@ -16,18 +16,18 @@ import {
 } from './routes/api.route';
 
 /**
- * @class YggdrasilServer
+ * @class YGServer
  */
-export class YggdrasilServer extends Bootstrap {
+export class YGServer extends Bootstrap {
 
-	/** YggdrasilServer logger */
-	public logger: FileLogger;
+	/** YGServer logger */
+	public logger: YGLogger;
 
 	/** Default constructor */
 	constructor() {
 		super();
 
-		this.logger = new FileLogger(YggdrasilServer.name);
+		this.logger = new YGLogger(YGServer.name);
 	}
 
 	/**

@@ -1,5 +1,5 @@
 /** yggdrasil imports */
-import { FileLogger } from '@yggdrasilts/core';
+import { YGLogger } from '@yggdrasilts/core';
 import { Request, Response } from '@yggdrasilts/mvc';
 
 /** Application imports */
@@ -11,14 +11,14 @@ import { HelloWorld } from './helloworld.dto';
 export class HelloWorldCtrl {
 
 	/** HelloWorldCtrl logger */
-	private logger: FileLogger;
+	private logger: YGLogger;
 
 	/** HelloWorldCtrl property */
 	private helloWorld: HelloWorld[];
 
 	/** Default constructor */
 	constructor() {
-		this.logger = new FileLogger(HelloWorldCtrl.name);
+		this.logger = new YGLogger(HelloWorldCtrl.name);
 		this.helloWorld = new Array();
 	}
 

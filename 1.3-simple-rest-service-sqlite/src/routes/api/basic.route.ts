@@ -1,6 +1,6 @@
 /** yggdrasil imports */
 import { BaseRoutes, Router } from '@yggdrasilts/mvc';
-import { FileLogger } from '@yggdrasilts/core';
+import { YGLogger } from '@yggdrasilts/core';
 import { SQLiteDBRepository } from '@yggdrasilts/data';
 
 /** Application controllers imports */
@@ -11,16 +11,16 @@ import { BasicCtrl } from '../../controllers/api';
  */
 export class BasicAPIRoute extends BaseRoutes {
 
-	/** BasicAPIRoute logger */
-	public logger: FileLogger;
-
 	/** Declare controllers */
 	private basicCtrl: BasicCtrl;
+
+	/** BasicAPIRoute logger */
+	public logger: YGLogger;
 
 	/** Default constructor */
 	constructor(router: Router, repository: SQLiteDBRepository) {
 		super();
-		this.logger = new FileLogger(BasicAPIRoute.name);
+		this.logger = new YGLogger(BasicAPIRoute.name);
 		this.basicCtrl = new BasicCtrl(repository);
 
 		/** Creates routes */
